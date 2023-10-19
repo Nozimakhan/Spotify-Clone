@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'Circular Std Medium';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Bold';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Bold.ttf') format('truetype');
+}
+
+.home__wrapper {
+    background-color: #000;
+    height: 100%;
+    .home {
+        display: flex;
+        justify-content: space-between;
+
+        .main__wrapper {
+            background: linear-gradient(180deg, #3333A3 5.09%, #121212 33.4%);
+            width: 100%;
+            max-width: 1072px;
+            height: 100%;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+}

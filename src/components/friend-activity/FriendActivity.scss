@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Circular Std Medium';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Book.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Bold';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Black';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Black.ttf') format('truetype');
+}
+
+.friend {
+    background-color: #000;
+    width: 346px;
+    height: 100%;
+    padding: 0 20px;
+
+    .title {
+        display: flex;
+        align-items: center;
+        padding-top: 30px;
+
+        h3 {
+            font-family: 'Circular Std Book';
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 25.3px;
+            letter-spacing: 1%;
+            color: #CCCCCC;
+            flex: 1;
+        }
+
+        img {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    P {
+        font-family: 'Circular Std Book';
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 24px;
+        color: #CCCCCC;
+        padding: 20px 0;
+    }
+
+    .users__wrapper {
+        img {
+            width: 179px;
+            height: 62px;
+            margin-top: 10px;
+        }
+    }
+    button{
+        width: 233px;
+        height: 62px;
+        border-radius: 40px;
+        background-color: #fff;
+        color: #171717;
+        font-family: 'Circular Std Bold';
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22.77px;
+        letter-spacing: 14%;
+        margin: 10px 0;
+        cursor: pointer;
+    }
+}

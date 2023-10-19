@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Circular Std Medium';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Book.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Bold';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Black';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Black.ttf') format('truetype');
+}
+
+.title-cart{
+    display: flex;
+    align-items: last baseline;
+    height: 100%;
+    h2{
+        font-family: 'Circular Std Bold';
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 37.95px;
+        letter-spacing: -3%;
+        color: #FFFFFF;
+        margin: 40px 0;
+        flex: 1;
+    }
+    button{
+        font-family: 'Circular Std Bold';
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20.24px;
+        letter-spacing: 8%;
+        color: #ADADAD;
+        text-align: right;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+    }
+}
+.cart__wrapper{
+    display: grid;
+    grid-template-columns: repeat(4, 224px);
+    gap: 0px 25px;
+    .cart-box{
+        width: 224px;
+        height: 324px;
+        background-color: rgba(255, 255, 255, 0.068);
+        padding: 10px 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+        a{
+            img{
+                width: 182px;
+                height: 182px;
+                object-fit: cover;
+                border-radius: 4px;
+            }
+        }
+        h4{
+            font-family: 'Circular Std Bold';
+            font-weight: 700;
+            font-size: 20px;
+            line-height: 25.3px;
+            letter-spacing: 3%;
+            color: #FFFFFF;
+            text-transform: capitalize;
+            margin: 15px 0;
+        }
+        p{
+            font-family: 'Circular Std Book';
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 22.77px;
+            color: #B3B3B3;
+        }
+    }
+}

@@ -1,0 +1,358 @@
+@font-face {
+    font-family: 'Circular Std Medium';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Book';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Book.otf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Bold';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Circular Std Black';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Black.ttf') format('truetype');
+}
+
+.pl-bg-one {
+    height: 100%;
+    background-color: #000;
+    height: 100%;
+}
+
+.playlist-info__wrapper-one {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+
+    .playlist-like-info-one {
+        max-width: 1072px;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #604EC1 5.09%, #121212 43.28%);
+
+        .container {
+            .btns {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 0 15px;
+                padding-top: 20px;
+
+                .btn-bg {
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 50%;
+                    background-color: #0000009c;
+                    border: none;
+                    outline: none;
+                    display: grid;
+                    place-items: center;
+                    cursor: pointer;
+
+                    svg {
+                        color: #fff;
+                        font-size: 28px;
+                    }
+                }
+            }
+
+            .album-info {
+                display: flex;
+                align-items: last baseline;
+                gap: 0 30px;
+                margin-top: 50px;
+                padding: 0 10px;
+
+                .album-img {
+                    box-shadow: 0px 0px 24px 0px #00000040;
+
+                    img {
+                        width: 297px;
+                        height: 297px;
+                        object-fit: cover;
+                    }
+                }
+
+                .album-text {
+                    display: flex;
+                    flex-direction: column;
+
+                    .type {
+                        font-family: 'Circular Std Medium';
+                        font-weight: 500;
+                        font-size: 16px;
+                        line-height: 20.24px;
+                        letter-spacing: -2%;
+                        color: #fff;
+                        text-transform: uppercase;
+                        margin-bottom: -30px;
+                        padding-left: 20px;
+                    }
+
+                    h1 {
+                        font-family: 'Circular Std Black';
+                        font-weight: 900;
+                        font-size: 122px;
+                        line-height: 104.33px;
+                        letter-spacing: -6%;
+                        color: #fff;
+                        text-transform: capitalize;
+                    }
+
+                    .desc {
+                        font-family: 'Circular Std Book';
+                        font-weight: 400;
+                        font-size: 20px;
+                        line-height: 25.3px;
+                        color: #fff;
+                        text-transform: capitalize;
+                        margin-top: 20px;
+                    }
+
+                    .madefor {
+                        display: flex;
+                        align-items: center;
+                        font-family: 'Circular Std Book';
+                        font-weight: 400;
+                        font-size: 18px;
+                        line-height: 22.77px;
+                        letter-spacing: 1%;
+                        color: rgba(255, 255, 255, 0.7);
+                        margin-top: 5px;
+
+                        span {
+                            padding: 0 5px;
+                        }
+
+                        .artist {
+                            font-family: 'Circular Std Bold';
+                            font-weight: 700;
+                            font-size: 18px;
+                            line-height: 22.77px;
+                            letter-spacing: 1%;
+                            color: #FFFFFF;
+                        }
+
+                        svg {
+                            width: 5px;
+                            height: 5px;
+                            color: #fff;
+                        }
+
+                        .time {
+                            font-family: 'Circular Std Book';
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 22.77px;
+                            letter-spacing: 1%;
+                            color: rgba(255, 255, 255, 0.7);
+                        }
+                    }
+                }
+            }
+
+            .album-nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-top: 50px;
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    cursor: pointer;
+                }
+
+                .nav {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 20px;
+                }
+
+                .select-search {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 20px;
+
+                    .select {
+                        display: flex;
+                        align-items: flex-start;
+                        gap: 0 10px;
+
+                        select {
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            appearance: none;
+                            font-family: 'Circular Std Book';
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 22.77px;
+                            letter-spacing: -1%;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+
+            .table-title {
+                font-family: 'Circular Std Book';
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20.24px;
+                letter-spacing: 9%;
+                color: #B3B3B3;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0 200px;
+                margin: 20px 0 10px 0;
+
+                .th-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 30px;
+                    flex: 1;
+                }
+
+                .th-mini-title {
+                    display: flex;
+                    align-items: center;
+                    gap: 0 195px;
+                }
+            }
+
+            .table-border {
+                border-bottom: 1px solid #666666;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 20px;
+
+                tbody {
+                    color: #fff;
+
+                    tr {
+                        height: 72px;
+
+                        td {
+                            vertical-align: middle;
+                            height: 72px;
+                        }
+
+                        .number {
+                            font-family: 'Circular Std Book';
+                            font-weight: 400;
+                            font-size: 22px;
+                            line-height: 27.83px;
+                            letter-spacing: 2%;
+                            color: #B3B3B3;
+                            padding: 0 5px;
+                        }
+
+                        .song {
+                            display: flex;
+                            align-items: center;
+                            gap: 0 20px;
+                            min-width: 350px;
+                            width: 100%;
+
+
+                            .song-wrapper {
+                                display: flex;
+                                align-items: center;
+                                gap: 0 20px;
+
+                                .song-title {
+                                    .song-name {
+                                        font-family: 'Circular Std Book';
+                                        font-weight: 400;
+                                        font-size: 20px;
+                                        line-height: 25.3px;
+                                        letter-spacing: 1%;
+                                        color: #fff;
+                                    }
+
+                                    .artist-name {
+                                        font-family: 'Circular Std Book';
+                                        font-weight: 400;
+                                        font-size: 18px;
+                                        line-height: 22.77px;
+                                        color: #B3B3B3;
+                                    }
+                                }
+                            }
+                        }
+
+                        .album {
+                            font-family: 'Circular Std Book';
+                            font-weight: 400;
+                            font-size: 18px;
+                            line-height: 22.77px;
+                            color: #B3B3B3;
+                            text-align: left;
+                            min-width: 350px;
+                            width: 100%;
+
+                        }
+
+                        .empty {
+                            min-width: 100px;
+                            width: 100%;
+                            text-align: center;
+
+                            svg {
+                                width: 28px;
+                                height: 28px;
+                                color: #fff;
+
+                            }
+
+                            .like-btn {
+                                background-color: transparent;
+                                border: none;
+                                outline: none;
+                                cursor: pointer;
+
+
+                            }
+                        }
+
+                        .like-time {
+                            // display: flex;
+                            // align-items: flex-start;
+                            // justify-content: flex-end;
+                            // gap: 0 30px;
+                            // float: left;
+                            min-width: 100px;
+                            width: 100%;
+
+
+                            p {
+                                font-family: 'Circular Std Book';
+                                font-weight: 400;
+                                font-size: 20px;
+                                line-height: 25.3px;
+                                letter-spacing: 1%;
+                                color: #fff;
+                                text-align: right;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

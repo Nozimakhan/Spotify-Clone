@@ -1,0 +1,106 @@
+@font-face {
+    font-family: 'Circular Std Book';
+    src: local('Circular Std'),
+        url('../../fonts/CircularStd-Book.otf') format('truetype');
+}
+.player-info{
+    .player{
+        width: 100%;
+        height: 112px;
+        background-color: #181818;
+        position: relative;
+        display: flex;
+        align-items: center;
+        .music{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 40px 0;
+            audio{
+                display: none;
+            }
+            .music-img{
+                img{
+                    width: 216px;
+                    height: 216px;
+                    border: 1px solid white;
+                    position: absolute;
+                    bottom: 112px;
+                }
+            }
+            .music-owner{
+                display: flex;
+                align-items: center;
+                gap: 0 30px;
+                padding-left: 20px;
+                .music-name{
+                    font-family: 'Circular Std Book';
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 22.77px;
+                    color: #FFFFFF;
+                }
+                .artist-name{
+                    font-family: 'Circular Std Book';
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 20.24px;
+                    letter-spacing: -5%;
+                    color: #B3B3B3;
+                }
+    
+            }
+        }
+        .spotify-player{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px 0;
+            margin-right: 300px;
+            .music-player{
+                display: flex;
+                align-items: center;
+                gap: 0 30px;
+                button{
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    svg{
+                        width: 48px;
+                        height: 48px;
+                        color: #FFFFFF;
+                    }
+                }
+    
+            }
+            .navigation{
+                .navigation__wrapper{
+                    min-width: 552px;
+                    width: 100%;
+                    height: 5px;
+                    border-radius: 4px;
+                    background-color: #B3B3B3;
+                    .seek__bar{
+                        width: 50%;
+                        height: 5px;
+                        border-radius: 4px;
+                        background-color: #FFFFFF;
+                    }
+                }
+            }
+        }
+        .volume{
+            display: flex;
+            align-items: center;
+            gap: 0 5px;
+            padding-right: 20px;
+            input{
+                accent-color: #FFFFFF;
+                height: 5px;
+                border: none;
+                outline: none;
+            }
+        }
+    }
+}
