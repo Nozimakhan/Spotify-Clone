@@ -16,7 +16,7 @@ const Sidebar = () => {
     fetch("https://api.spotify.com/v1/browse/featured-playlists",
       {
         headers: {
-          "Authorization" : "Bearer BQAq5K79b8_kd_2fiPRNoKqXl0R4S9cwdmYzfyAGXvfgUCYlQMsNmLqLZEqzxsij3kx3v-joqHZjw_2Ws5xWeSIoKX_1gS5QD6fF0KHj7ggyNGrSZdE"
+          "Authorization" : "Bearer BQASJnD0jBpAWramyoz21tBI3s8EVo06BeCJDOsu1Urhpv9lmocjEGfh4VVPMn44NNAmiJ9S7xl9NIWoV3zysKD0UzsuoCXDtEpFFwP6M5zmFcPihHA"
         }
       }
     )

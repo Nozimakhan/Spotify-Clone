@@ -3,45 +3,53 @@
     src: local('Circular Std'),
         url('../../fonts/CircularStd-Book.otf') format('truetype');
 }
-.player-info{
-    .player{
+
+.player-info {
+    max-width: 1600px;
+    margin: auto;
+    .player {
         width: 100%;
         height: 112px;
         background-color: #181818;
         position: relative;
         display: flex;
         align-items: center;
-        .music{
-            width: 100%;
+        justify-content: space-between;
+
+        .music {
             height: 100%;
             display: flex;
             flex-direction: column;
             gap: 40px 0;
-            audio{
+
+            audio {
                 display: none;
             }
-            .music-img{
-                img{
-                    width: 216px;
-                    height: 216px;
-                    border: 1px solid white;
+
+            .music-img {
+                img {
+                    width: 225px;
+                    height: 225px;
                     position: absolute;
                     bottom: 112px;
                 }
             }
-            .music-owner{
+
+            .music-owner {
                 display: flex;
                 align-items: center;
                 gap: 0 30px;
                 padding-left: 20px;
-                .music-name{
+
+                .music-name {
                     font-family: 'Circular Std Book';
                     font-weight: 400;
                     font-size: 18px;
                     line-height: 22.77px;
                     color: #FFFFFF;
                 }
-                .artist-name{
+
+                .artist-name {
                     font-family: 'Circular Std Book';
                     font-weight: 400;
                     font-size: 16px;
@@ -49,39 +57,50 @@
                     letter-spacing: -5%;
                     color: #B3B3B3;
                 }
-    
+
             }
         }
-        .spotify-player{
+
+        .spotify-player {
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 10px 0;
-            margin-right: 300px;
-            .music-player{
+
+            .music-player {
                 display: flex;
                 align-items: center;
                 gap: 0 30px;
-                button{
+
+                button {
                     background-color: transparent;
                     border: none;
                     outline: none;
-                    svg{
+
+                    svg {
                         width: 48px;
                         height: 48px;
                         color: #FFFFFF;
                     }
+
+                    &:active {
+                        svg {
+                            fill: #63CF6C;
+                        }
+                    }
                 }
-    
+
             }
-            .navigation{
-                .navigation__wrapper{
+
+            .navigation {
+                .navigation__wrapper {
                     min-width: 552px;
                     width: 100%;
                     height: 5px;
                     border-radius: 4px;
                     background-color: #B3B3B3;
-                    .seek__bar{
+
+                    .seek__bar {
                         width: 50%;
                         height: 5px;
                         border-radius: 4px;
@@ -90,13 +109,15 @@
                 }
             }
         }
-        .volume{
+
+        .volume {
             display: flex;
             align-items: center;
             gap: 0 5px;
             padding-right: 20px;
-            input{
-                accent-color: #FFFFFF;
+
+            input {
+                accent-color: #63CF6C;
                 height: 5px;
                 border: none;
                 outline: none;

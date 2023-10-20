@@ -7,7 +7,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import FriendActivity from '../../components/friend-activity/FriendActivity';
 import clock from '../../assets/images/clock.svg';
 import download from '../../assets/images/download.svg';
-import heart from '../../assets/images/heart.svg';
+import { PiHeartThin } from 'react-icons/pi'
 import { FiHeart } from 'react-icons/fi';
 import { FaHeart } from 'react-icons/fa';
 import option from '../../assets/images/option.svg';
@@ -19,14 +19,12 @@ import LikeIcon from '../../assets/images/likeIcon.svg';
 import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
+import { dislikeMusic } from '../../redux/reducer/likeSlice';
 
 const Like = () => {
   const dispatch = useDispatch();
-  const likedSongs = useSelector(state => state.likedSongs);
 
-  function dislikeProduct(id) {
-    dispatch({ id, type: "DISLIKE_PRODUCT" })
-  }
+  const { likedSongs } = useSelector(state => state.likeReducer);
 
   return (
     <div className="pl-bg-one">
@@ -60,7 +58,7 @@ const Like = () => {
             <div className="album-nav">
               <div className="nav">
                 <button className='play' ><img src={play} alt="" /></button>
-                <button className='heart' ><img src={heart} alt="" /></button>
+                <button className='heart' ><PiHeartThin/></button>
                 <button className='download' ><img src={download} alt="" /></button>
                 <button className='menu' ><img src={option} alt="" /></button>
               </div>
@@ -94,16 +92,14 @@ const Like = () => {
                         <div className="song-wrapper">
                           <img width={52} height={52} src={music.album?.images?.[0].url} alt="" />
                           <div className="song-title">
-                            <p title={music.name} className='song-name'>{music.name.length > 20 ? music.name.slice(0, 20) + "..." : music.name}</p>
-                            <span className='artist-name'>{music.artists?.[0].name.length > 20 ? music.artists?.[0].name.slice(0, 20) + "..." : music.artists?.[0].name}</span>
+                            <p title={music.name} className='song-name'>{music.name}</p>
+                            <span className='artist-name'>{music.artists?.[0].name}</span>
                           </div>
                         </div>
                       </td>
                       <td className='album'> <p title={music.album?.name}>{music.album?.name}</p></td>
                       <td className='empty'>
-                        {
-                          likedSongs?.some(product => product.id === music.track?.id) ?  <FiHeart className="like-btn" onClick={() => { dislikeProduct(music.track) }} /> : <FaHeart className="like-btn" style={{ color: 'rgba(99, 207, 108, 1)' }} onClick={() => { dislikeProduct(music.track) }} /> 
-                        }
+                        <button onClick={() => dispatch(dislikeMusic(music.track))} >{likedSongs?.some(product => product.id === music.track?.id) ? <FiHeart className="like-btn" /> :  <FaHeart style={{ color: 'rgba(99, 207, 108, 1)' }} className="like-btn" /> }</button>
                       </td>
                       <td className='like-time'>
                         <p>{Math.floor(music.duration_ms / 60000)} : {Math.floor((music.duration_ms % 60000) / 1000).toString().padStart(2, '0')}</p>

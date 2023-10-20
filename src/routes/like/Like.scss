@@ -23,7 +23,8 @@
 }
 
 .pl-bg-one {
-    height: 100%;
+    max-width: 1600px;
+    margin: auto;
     background-color: #000;
     height: 100%;
 }
@@ -177,6 +178,13 @@
                     display: flex;
                     align-items: center;
                     gap: 0 20px;
+                    .heart{
+                        svg{
+                            color: white;
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
                 }
 
                 .select-search {
@@ -239,7 +247,7 @@
             table {
                 border-collapse: collapse;
                 width: 100%;
-                margin-top: 20px;
+                margin: 20px 0;
 
                 tbody {
                     color: #fff;
@@ -312,7 +320,11 @@
                             min-width: 100px;
                             width: 100%;
                             text-align: center;
-
+                            button{
+                                background-color: transparent;
+                                border: none;
+                                outline: none;
+                            }
                             svg {
                                 width: 28px;
                                 height: 28px;

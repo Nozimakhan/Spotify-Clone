@@ -25,6 +25,8 @@
 .pl-bg {
     height: 100vh;
     background-color: #000;
+    max-width: 1600px;
+    margin: auto;
 }
 
 .playlist-info__wrapper {
@@ -183,6 +185,13 @@
                     display: flex;
                     align-items: center;
                     gap: 0 20px;
+                    .heart{
+                        svg{
+                            color: white;
+                            width: 60px;
+                            height: 60px;
+                        }
+                    }
                 }
 
                 .select-search {
@@ -322,6 +331,11 @@
                             min-width: 100px;
                             width: 100%;
                             text-align: center;
+                            button{
+                                background-color: transparent;
+                                border: none;
+                                outline: none;
+                            }
 
                             svg {
                                 width: 28px;

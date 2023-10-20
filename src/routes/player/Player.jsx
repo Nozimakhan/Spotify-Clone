@@ -6,40 +6,52 @@ import { MdOutlinePauseCircleFilled } from 'react-icons/md';
 import { FaHeart } from 'react-icons/fa';
 import volume from '../../assets/images/volume.svg';
 import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 
 const Player = () => {
-    const isPlaying = useSelector(state => state.isPlaying);
-    console.log(isPlaying);
-    const dispatch = useDispatch();
-    const [play, setPlay] = useState(false);
+    const { currentSong } = useSelector(state => state.playerReducer);
+    const [isPlaying, setIsPlaying] = useState(false);
 
-    function handleClick(playing) {
-        dispatch({ playing, type: "SET_PLAYING" })
+    var music = document.getElementById("myAudio")
+
+    function playMusic() {
+        music.play();
     }
+
+    function pauseMusic() {
+        music.pause();
+    }
+
+
+    function volumeIncrease(e) {
+        music.volume = e.target.value / 100;
+    }
+
 
 
     return (
         <div className='player-info'>
             <div className='player'>
                 <div className="music">
-                    <audio controls ></audio>
+                    <audio src={currentSong[0]?.preview_url} controls id='myAudio'>
+                        <source  controls src={currentSong[0]?.preview_url} />
+                    </audio>
                     <div className="music-img">
-                        <img  alt="img" />
+                        <img width={50} height={50} src={currentSong[0]?.album?.images?.[0].url} alt="" />
                     </div>
                     <div className="music-owner">
                         <div className="artist">
-                            <p className='music-name'>music.name</p>
-                            <p className='artist-name'>music.artists?.[0].name</p>
+                            <p title={currentSong[0]?.name} className='music-name'>{currentSong[0]?.name.length > 15 ? currentSong[0]?.name.slice(0, 15) + "..." : currentSong[0]?.name}</p>
+                            <p className='artist-name'>{currentSong[0]?.artists?.[0].name}</p>
                         </div>
                         <p><FaHeart style={{ color: '#63CF6C', width: '28', height: '28' }} /></p>
                     </div>
+
                 </div>
                 <div className="spotify-player">
                     <div className="music-player">
                         <img src={shuffle} alt="" />
-                        <button onClick={() => { setPlay(!play); handleClick() }}>{play ? <MdOutlinePauseCircleFilled style={{ width: '48', height: '48' }} /> : <MdPlayCircleFilled style={{ width: '48', height: '48' }} />}</button>
+                        <button onClick={() => setIsPlaying(!isPlaying)}>{ isPlaying ? <MdOutlinePauseCircleFilled onClick={pauseMusic} /> : <MdPlayCircleFilled style={{color: '#63CF6C'}}  onClick={playMusic}/> }</button>
                         <img src={repeat} alt="" />
                     </div>
                     <div className="navigation">
@@ -50,7 +62,7 @@ const Player = () => {
                 </div>
                 <div className="volume">
                     <img src={volume} alt="" />
-                    <input type="range" />
+                    <input type="range" id='volume' onClick={volumeIncrease} />
                 </div>
             </div>
         </div>

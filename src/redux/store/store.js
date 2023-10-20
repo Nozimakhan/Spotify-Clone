@@ -1,6 +1,10 @@
-import { createStore } from 'redux';
-import { likeReducer } from '../reducer/likeReducer';
-
-const store = createStore(likeReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
-
-export default store;
+import { configureStore } from "@reduxjs/toolkit";
+import likeReducer from "../reducer/likeSlice";
+import playerReducer from "../reducer/playerSlice";
+ 
+export const store = configureStore({
+    reducer:{
+        likeReducer,
+        playerReducer
+    }
+})

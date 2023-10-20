@@ -8,7 +8,7 @@ import Sidebar from '../../components/sidebar/Sidebar';
 import FriendActivity from '../../components/friend-activity/FriendActivity';
 import clock from '../../assets/images/clock.svg';
 import download from '../../assets/images/download.svg';
-import heart from '../../assets/images/heart.svg';
+import { PiHeartThin } from 'react-icons/pi';
 import { FiHeart } from 'react-icons/fi';
 import { FaHeart } from 'react-icons/fa';
 import option from '../../assets/images/option.svg';
@@ -19,20 +19,23 @@ import no from '../../assets/images/no.svg';
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
+import { likeMusic } from '../../redux/reducer/likeSlice';
+import { PlayAudio } from '../../redux/reducer/playerSlice';
 
 
 
 const PlaylistInfo = () => {
-    const likedSongs = useSelector(state => state.likedSongs);
+    const {likedSongs} = useSelector(state => state.likeReducer)
+    const {currentSong} = useSelector(state => state.playerReducer)
     const dispatch = useDispatch();
-    const [data, setData] = useState([]);
+    const [data, setData] = useState([]); 
     let playlistInfoInURL = useParams();
 
     useEffect(() => {
         fetch(`https://api.spotify.com/v1/playlists/${playlistInfoInURL.id}`,
             {
                 headers: {
-                    "Authorization": "Bearer BQAq5K79b8_kd_2fiPRNoKqXl0R4S9cwdmYzfyAGXvfgUCYlQMsNmLqLZEqzxsij3kx3v-joqHZjw_2Ws5xWeSIoKX_1gS5QD6fF0KHj7ggyNGrSZdE"
+                    "Authorization": "Bearer BQASJnD0jBpAWramyoz21tBI3s8EVo06BeCJDOsu1Urhpv9lmocjEGfh4VVPMn44NNAmiJ9S7xl9NIWoV3zysKD0UzsuoCXDtEpFFwP6M5zmFcPihHA"
                 }
             }
         )
@@ -40,12 +43,6 @@ const PlaylistInfo = () => {
             .then(data => setData(data))
 
     }, [playlistInfoInURL.id])
-
-
-    function likeProduct(addedProduct) {
-        dispatch({ addedProduct, type: "LIKE_PRODUCT" })
-    }
-
 
 
 
@@ -84,7 +81,7 @@ const PlaylistInfo = () => {
                         <div className="album-nav">
                             <div className="nav">
                                 <button className='play' ><img src={play} alt="" /></button>
-                                <button className='heart' ><img src={heart} alt="" /></button>
+                                <button className='heart' ><PiHeartThin/></button>
                                 <button className='download' ><img src={download} alt="" /></button>
                                 <button className='menu' ><img src={option} alt="" /></button>
                             </div>
@@ -114,7 +111,10 @@ const PlaylistInfo = () => {
                             <tbody>
                                 {
                                     data?.tracks?.items.map((music, i) => (
-                                        <tr key={i}>
+                                        <tr onClick={()=> dispatch(PlayAudio(music.track)) } key={i}>
+                                            {
+                                                currentSong?.some(song => song.id === music.track?.id)
+                                            }
                                             <td className='number'><p>{i + 1}</p></td>
                                             <td className='song'>
                                                 <div className="song-wrapper">
@@ -127,9 +127,7 @@ const PlaylistInfo = () => {
                                             </td>
                                             <td className='album'> <p title={music.track?.album?.name}>{music.track?.album?.name.length > 20 ? music.track?.album?.name.slice(0, 20) + "..." : music.track?.album?.name}</p></td>
                                             <td className='empty'>
-                                                {
-                                                    likedSongs?.some(product => product.id === music.track?.id) ? <FaHeart className="like-btn" style={{ color: 'rgba(99, 207, 108, 1)' }} onClick={() => { likeProduct(music.track) }} /> : <FiHeart className="like-btn" onClick={() => { likeProduct(music.track) }} />
-                                                }
+                                                <button onClick={() => dispatch(likeMusic(music.track))} >{likedSongs?.some(product => product.id === music.track?.id) ? <FaHeart style={{ color: 'rgba(99, 207, 108, 1)' }} className="like-btn" /> : <FiHeart className="like-btn"/> }</button>
                                             </td>
                                             <td className='like-time'>
                                                 <p>{Math.floor(music.track?.duration_ms / 60000)} : {Math.floor((music.track?.duration_ms % 60000) / 1000).toString().padStart(2, '0')}</p>
