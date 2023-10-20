@@ -20,11 +20,13 @@ import { v4 as uuidv4 } from 'uuid';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { dislikeMusic } from '../../redux/reducer/likeSlice';
+import { PlayAudio } from '../../redux/reducer/playerSlice';
 
 const Like = () => {
   const dispatch = useDispatch();
 
   const { likedSongs } = useSelector(state => state.likeReducer);
+  const {currentSong} = useSelector(state => state.playerReducer);
 
   return (
     <div className="pl-bg-one">
@@ -58,7 +60,7 @@ const Like = () => {
             <div className="album-nav">
               <div className="nav">
                 <button className='play' ><img src={play} alt="" /></button>
-                <button className='heart' ><PiHeartThin/></button>
+                <button className='heart' ><PiHeartThin /></button>
                 <button className='download' ><img src={download} alt="" /></button>
                 <button className='menu' ><img src={option} alt="" /></button>
               </div>
@@ -86,7 +88,10 @@ const Like = () => {
               <tbody>
                 {
                   likedSongs?.map((music, i) => (
-                    <tr key={i}>
+                    <tr key={i} onClick={()=> dispatch(PlayAudio(music)) }>
+                      {
+                        currentSong?.some(song => song.id === music.id)
+                      }
                       <td className='number'><p>{i + 1}</p></td>
                       <td className='song'>
                         <div className="song-wrapper">
@@ -99,7 +104,7 @@ const Like = () => {
                       </td>
                       <td className='album'> <p title={music.album?.name}>{music.album?.name}</p></td>
                       <td className='empty'>
-                        <button onClick={() => dispatch(dislikeMusic(music.track))} >{likedSongs?.some(product => product.id === music.track?.id) ? <FiHeart className="like-btn" /> :  <FaHeart style={{ color: 'rgba(99, 207, 108, 1)' }} className="like-btn" /> }</button>
+                        <button onClick={() => dispatch(dislikeMusic(music.track))} >{likedSongs?.some(product => product.id === music.track?.id) ? <FiHeart className="like-btn" /> : <FaHeart style={{ color: 'rgba(99, 207, 108, 1)' }} className="like-btn" />}</button>
                       </td>
                       <td className='like-time'>
                         <p>{Math.floor(music.duration_ms / 60000)} : {Math.floor((music.duration_ms % 60000) / 1000).toString().padStart(2, '0')}</p>

@@ -10,7 +10,8 @@ const MadeForyou = () => {
     fetch("https://api.spotify.com/v1/browse/categories/0JQ5DAqbMKFHOzuVTgTizF/playlists",
       {
         headers: {
-          "Authorization" : "Bearer BQASJnD0jBpAWramyoz21tBI3s8EVo06BeCJDOsu1Urhpv9lmocjEGfh4VVPMn44NNAmiJ9S7xl9NIWoV3zysKD0UzsuoCXDtEpFFwP6M5zmFcPihHA"
+          'Content-Type': 'application/json',
+          "Authorization" : 'Bearer BQDQzFA9FJaQATb0-egm-OMcDGI7eIjdLu7LwHbSQUZ9BzaiR0PIeMhdZsh28HtCpvEOutC1fGjPYka8whiDrezSE9EhrL23kWnSZSrwIR_-d6DnNBo'
         }
       }
     )
