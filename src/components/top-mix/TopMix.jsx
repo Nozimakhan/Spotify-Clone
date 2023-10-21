@@ -12,7 +12,7 @@ const TopMix = () => {
       {
         headers: {
           'Content-Type': 'application/json',
-          "Authorization": 'Bearer BQDQzFA9FJaQATb0-egm-OMcDGI7eIjdLu7LwHbSQUZ9BzaiR0PIeMhdZsh28HtCpvEOutC1fGjPYka8whiDrezSE9EhrL23kWnSZSrwIR_-d6DnNBo'
+          "Authorization": localStorage.getItem('token')
         }
       }
     )
